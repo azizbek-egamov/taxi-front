@@ -24,7 +24,7 @@ export default function RootLayout({
         <AuthGuard>
           <div className="flex h-screen min-h-0 bg-gray-100">
             <Sidebar />
-            <main className="flex-1 min-h-0 overflow-y-auto">{children}</main>
+                         <main className="main flex-1 min-h-0 overflow-y-auto max-w-full py-6 md:py-3 sm:py-1">{children}</main>
           </div>
         </AuthGuard>
       </body>
