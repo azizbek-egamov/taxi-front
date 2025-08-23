@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Settings, MessageSquare, Users, DollarSign, Globe, CreditCard, ReceiptText } from "lucide-react"
+import { Settings, MessageSquare, Users, DollarSign, Globe, CreditCard, ReceiptText, Shield } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import GroupIdSettingsTab from "@/components/bot-settings/group-id-settings-tab"
@@ -9,7 +9,8 @@ import AdminSettingsTab from "@/components/bot-settings/admin-settings-tab"
 import PointPricesTab from "@/components/bot-settings/point-prices-tab"
 import CountriesTab from "@/components/bot-settings/countries-tab"
 import CardsTab from "@/components/bot-settings/cards-tab"
-import PointPurchaseRequestsTab from "@/components/bot-settings/point-purchase-requests-tab" // New import
+import PointPurchaseRequestsTab from "@/components/bot-settings/point-purchase-requests-tab"
+import DeportCheckRequestsTab from "@/components/bot-settings/deport-check-requests-tab"
 
 export default function BotSettingsPage() {
   const [activeTab, setActiveTab] = useState("group-ids")
@@ -29,39 +30,44 @@ export default function BotSettingsPage() {
                 <p className="text-sm text-gray-500">Bot va admin panel sozlamalarini boshqarish</p>
               </div>
             </div>
-            {/* The main save button is removed as each tab will have its own save functionality */}
           </div>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
         <Tabs defaultValue="group-ids" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto flex-wrap">
-            <TabsTrigger value="group-ids" className="flex items-center gap-2">
+          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-300">
+            <TabsList className="flex min-w-[600px] w-full gap-4 h-auto">
+            <TabsTrigger value="group-ids" className="flex items-center gap-3">
               <MessageSquare className="h-4 w-4" />
               Guruh ID lari
             </TabsTrigger>
-            <TabsTrigger value="admins" className="flex items-center gap-2">
+            <TabsTrigger value="admins" className="flex items-center gap-3">
               <Users className="h-4 w-4" />
               Adminlar
             </TabsTrigger>
-            <TabsTrigger value="point-prices" className="flex items-center gap-2">
+            <TabsTrigger value="point-prices" className="flex items-center gap-3">
               <DollarSign className="h-4 w-4" />
               Ball Narxlari
             </TabsTrigger>
-            <TabsTrigger value="countries" className="flex items-center gap-2">
+            <TabsTrigger value="countries" className="flex items-center gap-3">
               <Globe className="h-4 w-4" />
               Davlat/Viloyat/Shahar
             </TabsTrigger>
-            <TabsTrigger value="cards" className="flex items-center gap-2">
+            <TabsTrigger value="cards" className="flex items-center gap-3">
               <CreditCard className="h-4 w-4" />
               To'lov Kartalari
             </TabsTrigger>
-            <TabsTrigger value="point-purchase-requests" className="flex items-center gap-2">
+            {/* <TabsTrigger value="point-purchase-requests" className="flex items-center gap-3">
               <ReceiptText className="h-4 w-4" />
               Ball So'rovlari
+            </TabsTrigger> */}
+            <TabsTrigger value="deport-check-requests" className="flex items-center gap-3">
+              <Shield className="h-4 w-4" />
+              Deportatsiya Tekshiruvi
             </TabsTrigger>
-          </TabsList>
+            </TabsList>
+          </div>
 
           <div className="mt-6">
             <TabsContent value="group-ids">
@@ -81,6 +87,9 @@ export default function BotSettingsPage() {
             </TabsContent>
             <TabsContent value="point-purchase-requests">
               <PointPurchaseRequestsTab />
+            </TabsContent>
+            <TabsContent value="deport-check-requests">
+              <DeportCheckRequestsTab />
             </TabsContent>
           </div>
         </Tabs>
