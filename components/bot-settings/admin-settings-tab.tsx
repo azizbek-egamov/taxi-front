@@ -125,6 +125,23 @@ export default function AdminSettingsTab() {
             className="pl-9"
           />
         </div>
+        <Button
+          onClick={handleSave}
+          disabled={isSaving}
+          className="mb-4 w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+        >
+          {isSaving ? (
+            <>
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              Saqlanmoqda...
+            </>
+          ) : (
+            <>
+              <Save className="w-4 h-4 mr-2" />
+              Sozlamalarni saqlash
+            </>
+          )}
+        </Button>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user) => (
@@ -171,23 +188,6 @@ export default function AdminSettingsTab() {
             <p>Hech qanday administrator tanlanmagan</p>
           </div>
         )}
-        <Button
-          onClick={handleSave}
-          disabled={isSaving}
-          className="mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
-        >
-          {isSaving ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Saqlanmoqda...
-            </>
-          ) : (
-            <>
-              <Save className="w-4 h-4 mr-2" />
-              Sozlamalarni saqlash
-            </>
-          )}
-        </Button>
       </CardContent>
     </Card>
   )
