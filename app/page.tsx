@@ -227,7 +227,7 @@ export default function Dashboard() {
       <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-4 ml-16 lg:ml-0">
+            <div className="flex items-center space-x-4 ml-16 lg:ml-10">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Boshqaruv paneli</h1>
                 <p className="text-sm text-gray-500">Yo'l yo'lakay tizimi statistikasi</p>
